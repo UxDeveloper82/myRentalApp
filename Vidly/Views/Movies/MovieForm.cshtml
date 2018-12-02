@@ -1,0 +1,16 @@
+﻿@model Vidly.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+   <div class="form-group">
+       @Html.LabelFor(m =>m.Name)
+       @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+       @Html.ValidationMessageFor(m =>m.Name)
+   </div>
+
+}

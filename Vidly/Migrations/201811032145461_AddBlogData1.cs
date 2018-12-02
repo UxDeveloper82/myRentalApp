@@ -1,0 +1,30 @@
+namespace Vidly.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddBlogData1 : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Blogs",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        PostTitle = c.String(),
+                        PostImage = c.String(),
+                        PostDescription = c.String(),
+                        PostContent = c.String(),
+                        PostDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.Blogs");
+        }
+    }
+}

@@ -1,0 +1,25 @@
+﻿@model Vidly.Models.Blog
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Post</h2>
+<div class="container">
+    @using (Html.BeginForm("Create", "Blogs"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostTitle)
+            @Html.TextBoxFor(m => m.PostTitle, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostContent)
+            @Html.TextBoxFor(m => m.PostContent, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PostDescription)
+            @Html.TextBoxFor(m => m.PostDescription, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
+</div>
